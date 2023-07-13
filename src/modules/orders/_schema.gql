@@ -1,0 +1,32 @@
+type Query {
+  orders: [Order!]!
+  order(id: ID!): Order!
+}
+
+type Mutation {
+  createOrder(input: CreateOrderInput!): Order!
+  updateOrder(id: ID!, input: UpdateOrderInput!): Order!
+  removeOrder(id: ID!): Order!
+}
+
+type Order {
+  id: ID!
+  client_id: Int!
+  total_price: Float!
+  is_deleted: Boolean!
+  type: String!
+}
+
+input CreateOrderInput {
+  client_id: Int!
+  total_price: Float!
+  is_deleted: Boolean!
+  type: String!
+}
+
+input UpdateOrderInput {
+  client_id: Int
+  total_price: Float
+  is_deleted: Boolean
+  type: String
+}

@@ -1,0 +1,32 @@
+type Query {
+  orderItems: [OrderItem!]!
+  orderItem(id: ID!): OrderItem!
+}
+
+type Mutation {
+  createOrderItem(input: CreateOrderItemInput!): OrderItem!
+  updateOrderItem(id: ID!, input: UpdateOrderItemInput!): OrderItem!
+  removeOrderItem(id: ID!): OrderItem!
+}
+
+type OrderItem {
+  id: ID!
+  item_id: Int!
+  size_id: Int!
+  quantity: Int!
+  sub_total_price: Float!
+}
+
+input CreateOrderItemInput {
+  item_id: Int!
+  size_id: Int!
+  quantity: Int!
+  sub_total_price: Float!
+}
+
+input UpdateOrderItemInput {
+  item_id: Int
+  size_id: Int
+  quantity: Int
+  sub_total_price: Float
+}

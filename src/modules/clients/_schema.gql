@@ -1,0 +1,42 @@
+type Query {
+  clients: [Client!]!
+  client(id: ID!): Client!
+}
+
+type Mutation {
+  createClient(input: CreateClientInput!): Client!
+  updateClient(id: ID!, input: UpdateClientInput!): Client!
+  removeClient(id: ID!): Client!
+  loginClient(input: ClientLoginInput!): Login!
+}
+
+type Client {
+  id: ID!
+  phone_number: Int!
+  first_name: String!
+  last_name: String!
+  password: String!
+}
+
+type Login {
+  token: String
+}
+
+input CreateClientInput {
+  phone_number: Int!
+  first_name: String!
+  last_name: String!
+  password: String!
+}
+
+input UpdateClientInput {
+  phone_number: Int
+  first_name: String
+  last_name: String
+  password: String
+}
+
+input ClientLoginInput {
+  phone_number: String!
+  password: String!
+}
